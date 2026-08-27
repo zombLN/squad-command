@@ -821,7 +821,7 @@ const OBJECTIVES = [
   { id: "rampage", label: "Rampage Bosses", category: "Boss",
     desc: "No type triangle — favour your highest-invested mono squad." },
   { id: "crystal", label: "Crystal Boss (Crystal Event)", category: "Boss", monoOnly: true,
-    desc: "Type counters don't apply, and hybrid synergy mostly doesn't work here — true 5-of-one-type beats your real hybrid squad. Tactics Card actives are disabled too." },
+    desc: "Type counters don't apply — true 5-of-one-type gets a +30% Attack bonus, on top of the usual formation bonus. Check the daily 'Extra Bonus' panel in-game before swapping anyone out; named Defense Heroes stack +20% each and aren't visible here." },
   { id: "stronghold", label: "Digging Stronghold Monster", category: "PvE",
     desc: "PvE damage race — highest raw squad power wins." },
   { id: "campaign", label: "PvE / Campaign", category: "PvE",
@@ -1271,7 +1271,7 @@ function SquadBuilderTab({ roster, setRoster, formation, setFormation }) {
             {obj.monoOnly && (
               <div style={{ fontSize: 11.5, color: COLORS.Missile, marginBottom: 10, display: "flex", alignItems: "flex-start", gap: 5, background: `${COLORS.Missile}14`, padding: "7px 9px", borderRadius: 6 }}>
                 <Info size={12} style={{ marginTop: 1, flexShrink: 0 }} />
-                This is a true mono build, not your real equipped squad — swap out the hybrid wildcard for this fight. Tactics Card actives, War Fever, and rank bonuses are all disabled here too.
+                This is a true mono build, not your real equipped squad — swap out the hybrid wildcard for this fight. Tactics Card actives, War Fever, and rank bonuses are all disabled here too. Before you commit, check the in-game "Extra Bonus" panel — it rotates daily and can favor keeping a specific defender in over a pure power swap.
               </div>
             )}
             {single.real && <div style={{ fontSize: 10.5, color: COLORS.gold, marginBottom: 8 }}>Tap a hero to move it between front and back.</div>}
@@ -1720,7 +1720,13 @@ function InvestTab({ roster }) {
           Radar is the most undervalued piece in the game — it doesn't show up as visible damage, but the crit-damage reduction is what keeps your carry alive through enemy burst windows. Don't skip it for a flashier Gun/Chip upgrade.
         </div>
         <div style={{ fontSize: 12.5, color: COLORS.text, padding: "6px 0", borderBottom: `1px solid ${COLORS.border}` }}>
-          Mono-type squads get +20% HP/Attack/Defense at 5-of-one-type, +15% at 4, dropping further with more mixing — this is why Crystal Boss specifically wants true mono over your everyday hybrid.
+          General formation bonus for mono-type squads is +20% HP/Attack/Defense at 5-of-one-type, +15% at 4 — but Crystal Boss specifically uses a bigger same-type bonus, +30% Attack, on top of that. This is why it wants true mono over your everyday hybrid even more than other content does.
+        </div>
+        <div style={{ fontSize: 12.5, color: COLORS.text, padding: "6px 0", borderBottom: `1px solid ${COLORS.border}` }}>
+          Crystal Boss also has a separate, daily-rotating "Extra Bonus" panel — specific named Defense Heroes each grant a flat +20% damage bonus, stacking per hero, checked in-game before each attempt. Swapping out a qualifying defender for a "better DPS" pick can cost more than it gains if it breaks that stack — check the panel before you optimize purely by power.
+        </div>
+        <div style={{ fontSize: 12.5, color: COLORS.text, padding: "6px 0", borderBottom: `1px solid ${COLORS.border}` }}>
+          Crit RNG swings Crystal Boss damage more than most tactical tweaks do — a lucky string of crits can outweigh a "better" lineup on any given attempt. Don't over-read a single high or low result.
         </div>
         <div style={{ fontSize: 12.5, color: COLORS.text, padding: "6px 0" }}>
           For content that only needs one squad (bosses, PvE), put your single best gear on whichever hero carries that fight. For content needing all three squads at once, Squad 1 gets priority gear first — the Account Gear Plan above already sequences it that way.
